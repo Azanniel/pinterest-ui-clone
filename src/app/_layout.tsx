@@ -8,6 +8,8 @@ import {
   Roboto_700Bold,
 } from "@expo-google-fonts/roboto"
 
+import { theme } from '@/theme';
+
 SplashScreen.preventAutoHideAsync()
 
 export default function Layout() {
@@ -22,7 +24,7 @@ export default function Layout() {
   }
 
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
+    <GestureHandlerRootView style={{ flex: 1, backgroundColor: theme.colors.black }}>
       <StatusBar style='light' />
       {fontsLoaded && <Slot />}
     </GestureHandlerRootView>
