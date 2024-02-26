@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
 import { Feather } from "@expo/vector-icons";
 import { theme } from "@/theme";
@@ -8,9 +9,19 @@ interface PostProps {
 }
 
 export function Post({ image, title }: PostProps) {
+  const [aspectRatio, setAspectRatio] = useState(1)
+
+  useEffect(() => {
+    if (image) {
+      Image.getSize(image, (width, height) => {
+        setAspectRatio(width / height)
+      })
+    }
+  })
+
   return (
     <View style={styles.container}>
-      <Image style={styles.image} source={{ uri: image }} />
+      <Image style={[{ aspectRatio }, styles.image]} source={{ uri: image }} />
 
       <View style={styles.footer}>
         <Text style={styles.title}>{title}</Text>
@@ -27,8 +38,6 @@ const styles = StyleSheet.create({
   },
 
   image: {
-    width: '100%',
-    height: 200,
     borderRadius: 22
   },
 
