@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { View, StyleSheet } from 'react-native'
 import { Filters } from '@/components/filters'
 import { theme } from '@/theme'
+import { Posts } from '@/components/posts'
 import { FILTERS } from '@/utils/filters'
 
 export default function Home() {
@@ -10,6 +11,8 @@ export default function Home() {
   return (
     <View style={styles.container}>
       <Filters filters={FILTERS} filter={filter} onChange={setFilter} />
+
+      <Posts />
     </View>
   )
 }
