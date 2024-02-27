@@ -13,6 +13,7 @@ export const Menu = forwardRef<BottomSheet, MenuProps>(({ onClose }, ref) => {
   return (
     <BottomSheet
       ref={ref}
+      index={-1}
       backgroundStyle={styles.container}
       snapPoints={[230]}
       enablePanDownToClose
